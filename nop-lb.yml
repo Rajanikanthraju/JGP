@@ -1,0 +1,16 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nop-lb
+  labels:
+    job: lb
+spec:
+  ports:
+    - name: lb
+      port: 80
+      protocol: TCP
+  selector:
+    app: nopreplicaset
+    version: "1.0"
+  type: LoadBalancer
